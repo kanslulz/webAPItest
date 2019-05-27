@@ -1,9 +1,9 @@
 import React from 'react';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <h1> Test </h1>
+      <h1> {props.text || 'Default'} </h1>
     </div>
   );
 }
