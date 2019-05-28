@@ -28,7 +28,7 @@ export default function DrawerContents(props) {
       onKeyDown={props.closeDrawer}
     >
       <List>
-        <ListItem button key='Home'>
+        <ListItem button key='Home' onClick={() => window.location.href = '/'}>
           <ListItemIcon> <HomeIcon /> </ListItemIcon>
           <ListItemText primary='Home' />
         </ListItem>
@@ -36,7 +36,7 @@ export default function DrawerContents(props) {
       <Divider />
       <List>
         {featureDescriptors.map((fd, index) => (
-          <ListItem button key={fd.name}>
+          <ListItem button key={fd.name} onClick={() => window.location.href = fd.path}>
             <ListItemIcon> <fd.component.Icon /> </ListItemIcon>
             <ListItemText primary={fd.name} />
           </ListItem>

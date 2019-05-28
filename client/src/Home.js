@@ -41,7 +41,10 @@ function MediaCard(featureDescriptor) {
   return (
     <Card className={classes.card}>
       <CardActionArea className={classes.cardActionArea}>
-        <CardContent className={classes.cardContent} >
+        <CardContent 
+            className={classes.cardContent} 
+            onClick={() => window.location.href = featureDescriptor.path}
+        >
           <Typography gutterBottom variant="h5" component="h2" align="center">
             {featureDescriptor.name}
           </Typography>
@@ -52,10 +55,10 @@ function MediaCard(featureDescriptor) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={() => window.open(featureDescriptor.specLink)}>
           Spec
         </Button>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={() => window.open(featureDescriptor.blogLink)}>
           Blog
         </Button>
       </CardActions>
