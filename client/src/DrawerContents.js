@@ -11,13 +11,12 @@ import MailIcon from '@material-ui/icons/Mail';
 
 const useStyles = makeStyles({
   list: {
-    width: 250,
+    width: 300,
   },
   fullList: {
     width: 'auto',
   },
 });
-
 
 export default function DrawerContents() {
   const classes = useStyles();
