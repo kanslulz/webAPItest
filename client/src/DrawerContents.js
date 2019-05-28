@@ -20,6 +20,8 @@ const useStyles = makeStyles({
 
 export default function DrawerContents(props) {
   const classes = useStyles();
+  const isSelected = path => window.location.pathname === path;
+
   return (
     <div
       className={classes.list}
@@ -28,15 +30,19 @@ export default function DrawerContents(props) {
       onKeyDown={props.closeDrawer}
     >
       <List>
-        <ListItem button key='Home' onClick={() => window.location.href = '/'}>
+        <ListItem button key='Home' selected={isSelected('/')} onClick={() => window.location.href = '/'}>
           <ListItemIcon> <HomeIcon /> </ListItemIcon>
           <ListItemText primary='Home' />
         </ListItem>
       </List>
       <Divider />
       <List>
-        {featureDescriptors.map((fd, index) => (
-          <ListItem button key={fd.name} onClick={() => window.location.href = fd.path}>
+        {featureDescriptors.map(fd => (
+          <ListItem 
+              button key={fd.name} 
+              selected={isSelected(fd.path)} 
+              onClick={() => window.location.href = fd.path}
+          >
             <ListItemIcon> <fd.component.Icon /> </ListItemIcon>
             <ListItemText primary={fd.name} />
           </ListItem>
