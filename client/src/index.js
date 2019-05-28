@@ -3,20 +3,23 @@ import ReactDOM from 'react-dom';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import ToolBar from './ToolBar.js';
 import Home from './Home.js';
-import BgfMain from './features/background-fetch/Main.js';
-import BsMain from './features/background-sync/Main.js';
+import featureDescriptors from './features/feature-descriptors.js';
 
+class IndexRouting extends React.Component {
+  render() {
+    return (
+      <Router>
+        <ToolBar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          {featureDescriptors.map(
+            fd => <Route path={fd.path} component={fd.component} />
+          )}
+          <Route render= {_ => <h1> 404 </h1>} />
+        </Switch>
+      </Router>
+    );
+  }
+}
 
-const routing = (
-  <Router>
-    <ToolBar />
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/backgroundfetch" component={BgfMain} />
-      <Route exact path="/backgroundsync" component={BsMain} />
-      <Route render= {_ => <h1> 404 </h1>} />
-    </Switch>
-  </Router>
-)
-
-ReactDOM.render(routing, document.getElementById('root'))
+ReactDOM.render(<IndexRouting />, document.getElementById('root'))
