@@ -30,7 +30,7 @@ export default function DrawerContents(props) {
       onKeyDown={props.closeDrawer}
     >
       <List>
-        <ListItem button key='Home' selected={isSelected('/')} onClick={() => window.location.href = '/'}>
+        <ListItem button key='Home' selected={isSelected('/')} onClick={() => props.history.push('/')}>
           <ListItemIcon> <HomeIcon /> </ListItemIcon>
           <ListItemText primary='Home' />
         </ListItem>
@@ -41,7 +41,7 @@ export default function DrawerContents(props) {
           <ListItem 
               button key={fd.name} 
               selected={isSelected(fd.path)} 
-              onClick={() => window.location.href = fd.path}
+              onClick={() => props.history.push(fd.path)}
           >
             <ListItemIcon> <fd.component.Icon /> </ListItemIcon>
             <ListItemText primary={fd.name} />

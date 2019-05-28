@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function MediaCard(featureDescriptor) {
+function MediaCard(featureDescriptor, history) {
   const classes = useStyles();
 
   return (
@@ -43,7 +43,7 @@ function MediaCard(featureDescriptor) {
       <CardActionArea className={classes.cardActionArea}>
         <CardContent 
             className={classes.cardContent} 
-            onClick={() => window.location.href = featureDescriptor.path}
+            onClick={() => history.push(featureDescriptor.path)}
         >
           <Typography gutterBottom variant="h5" component="h2" align="center">
             {featureDescriptor.name}
@@ -66,7 +66,7 @@ function MediaCard(featureDescriptor) {
   );
 }
 
-export default function Home() {
+export default function Home(props) {
   const classes = useStyles();
 
   return (
@@ -87,7 +87,7 @@ export default function Home() {
           <Grid container spacing={4} direction="row" justify="center" alignItems="center">
             {featureDescriptors.map(fd => (
               <Grid item key={fd.name} xs={12} sm={6} md={4}>
-                {MediaCard(fd)}
+                {MediaCard(fd, props.history)}
               </Grid>
             ))}
           </Grid>

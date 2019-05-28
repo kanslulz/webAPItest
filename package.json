@@ -11,6 +11,7 @@
   "author": "rayankans",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "history": "^4.9.0"
   }
 }

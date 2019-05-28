@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ToolBar() {
+export default function ToolBar(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -44,7 +44,7 @@ export default function ToolBar() {
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
       >
-        <DrawerContents closeDrawer={() => setOpen(false)} />
+        <DrawerContents closeDrawer={() => setOpen(false)} history={props.history} />
       </SwipeableDrawer>
     </>
   );
