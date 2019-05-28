@@ -1,0 +1,16 @@
+{
+  "name": "webapitest",
+  "version": "1.0.0",
+  "description": "Test Website for Web APIs",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "react": "npm run start --prefix client",
+    "start": "npm run build --prefix client && NODE_ENV=production node app.js"
+  },
+  "author": "rayankans",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
