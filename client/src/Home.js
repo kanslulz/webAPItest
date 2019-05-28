@@ -19,16 +19,13 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(8, 0, 6),
   },
   cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8),
-    paddingRight: theme.spacing(1),
-    paddingLeft: theme.spacing(1),
+    padding: theme.spacing(8, 2),
   },
   card: {
     height: '200px',
     display: 'flex',
     flexDirection: 'column',
-    width: '300px',
+    width: '100%',
   },
   cardActionArea: {
     height: '100%',
