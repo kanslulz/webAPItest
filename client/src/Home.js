@@ -10,6 +10,8 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
+import featureDescriptors from './features/feature-descriptors.js';
+
 const useStyles = makeStyles(theme => ({
   heroContent: {
     backgroundColor: theme.palette.background.paper,
@@ -22,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: theme.spacing(1),
   },
   card: {
-    height: '300px',
+    height: '200px',
     display: 'flex',
     flexDirection: 'column',
     width: '300px',
@@ -35,34 +37,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const cards = [
-  {
-    title: 'Background Fetch',
-    description: 'A web API for creating uploads/downloads in the background',
-    spec: null,
-    tutorial: null,
-  },
-  {
-    title: 'Background Fetch2',
-    description: 'A web API for creating uploads/downloads in the background asdf sadf sdfdasf sdf sdf dsfadsf sadf' +
-      'asdsads asljdnajsd lasjflkasf lsakjflkasmflas lksajfdlksaf lsakmdf;kasmf ;askdfmlaskf lskamnfdlksanf laksjfkasf',
-    spec: null,
-    tutorial: null,
-  },
-  {
-    title: 'Background Fetch3',
-    description: 'A web API for creating uploads/downloads in the background',
-    spec: null,
-    tutorial: null,
-  },{
-    title: 'Background Fetch4',
-    description: 'A web API for creating uploads/downloads in the background',
-    spec: null,
-    tutorial: null,
-  },
-];
-
-function MediaCard(cardData) {
+function MediaCard(featureDescriptor) {
   const classes = useStyles();
 
   return (
@@ -70,10 +45,10 @@ function MediaCard(cardData) {
       <CardActionArea className={classes.cardActionArea}>
         <CardContent className={classes.cardContent} >
           <Typography gutterBottom variant="h5" component="h2">
-            {cardData.title}
+            {featureDescriptor.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {cardData.description}
+            {featureDescriptor.description}
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -107,10 +82,10 @@ export default function Home() {
           </Container>
         </div>
         <Container className={classes.cardGrid} maxWidth="md">
-          <Grid container spacing={4}>
-            {cards.map(card => (
-              <Grid item key={card.title} xs={12} sm={6} md={4}>
-                {MediaCard(card)}
+          <Grid container spacing={4} direction="row" justify="center" alignItems="center">
+            {featureDescriptors.map(fd => (
+              <Grid item key={fd.name} xs={12} sm={6} md={4}>
+                {MediaCard(fd)}
               </Grid>
             ))}
           </Grid>
