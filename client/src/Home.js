@@ -6,6 +6,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -44,9 +45,10 @@ function MediaCard(featureDescriptor) {
     <Card className={classes.card}>
       <CardActionArea className={classes.cardActionArea}>
         <CardContent className={classes.cardContent} >
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h5" component="h2" align="center">
             {featureDescriptor.name}
           </Typography>
+          <Divider style={{marginBottom: '10px'}} />
           <Typography variant="body2" color="textSecondary" component="p">
             {featureDescriptor.description}
           </Typography>
