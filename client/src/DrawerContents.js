@@ -18,12 +18,14 @@ const useStyles = makeStyles({
   },
 });
 
-export default function DrawerContents() {
+export default function DrawerContents(props) {
   const classes = useStyles();
   return (
     <div
       className={classes.list}
       role="presentation"
+      onClick={props.closeDrawer}
+      onKeyDown={props.closeDrawer}
     >
       <List>
         {['Home', 'Web API1', 'Web API2'].map((text, index) => (

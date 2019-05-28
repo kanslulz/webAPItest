@@ -43,7 +43,7 @@ export default function ToolBar() {
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
       >
-        <DrawerContents />
+        <DrawerContents closeDrawer={() => setOpen(false)} />
       </SwipeableDrawer>
     </>
   );
