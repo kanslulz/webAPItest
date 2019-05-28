@@ -28,8 +28,9 @@ export default function ToolBar() {
       <CssBaseline />
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.icon} color="inherit" aria-label="Menu">
-            <MenuIcon onClick={() => setOpen(true)} />
+          <IconButton edge="start" className={classes.icon} color="inherit" aria-label="Menu"
+                      onClick={() => setOpen(true)}>
+            <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" noWrap>
             Web API Tests
