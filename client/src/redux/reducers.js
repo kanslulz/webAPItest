@@ -4,16 +4,16 @@ import { NAVIGATE } from './actions.js';
 
 
 const initialState = {
-  path: '/',
+  featureDescriptor: null,
 };
 
-function navigate(state = initialState, action) {
-  if (action.type !== NAVIGATE)
+function navigateToFeature(state = initialState, action) {
+  if (action.type !== NAVIGATE_TO_FEATURE)
     return state;
   
-  return { path: action.path };
+  return { featureDescriptor: action.featureDescriptor };
 }
 
 export default combineReducers({
-  navigate,
+  navigateToFeature,
 });

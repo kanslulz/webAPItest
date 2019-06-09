@@ -1,9 +1,9 @@
 
-export const NAVIGATE = 'NAVIGATE';
+export const NAVIGATE_TO_FEATURE = 'NAVIGATE_TO_FEATURE';
 
-export function navigate(path) {
+export function navigateToFeature(featureDescriptor) {
   return {
-    type: NAVIGATE,
-    path,
+    type: NAVIGATE_TO_FEATURE,
+    featureDescriptor,
   };
 }
