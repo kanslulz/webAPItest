@@ -19,14 +19,16 @@ function connectFeatureComponent(component, fd) {
   return () => (<FeatureComponent fd={fd} />)
 }
 
+const WrappedToolBar = connect(state => ({fd: state.navigateToFeature.featureDescriptor}))(ToolBar);
+
 function IndexRouting() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <ToolBar />
+        <WrappedToolBar />
         <Switch>
           <Route exact path='/' 
-                render={(props) => <Home history={props.history} onRender={() => store.dispatch(navigateToFeature(null))} />} />
+                 render={(props) => <Home history={props.history} onRender={() => store.dispatch(navigateToFeature(null))} />} />
           {featureDescriptors.map(fd => (
             <Route exact path={fd.path} 
                    component={connectFeatureComponent(fd.component, fd)}

@@ -33,7 +33,7 @@ export default function ToolBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" noWrap>
-            Web API Tests
+            {props.fd ? props.fd.name : "Web API Tests"}
           </Typography>
           <div className={classes.grow} />
           {/* TODO: Add github icon */}
