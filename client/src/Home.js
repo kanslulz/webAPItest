@@ -69,6 +69,8 @@ function MediaCard(featureDescriptor, history) {
 export default function Home(props) {
   const classes = useStyles();
 
+  props.onRender();
+
   return (
     <React.Fragment>
       <CssBaseline />

@@ -32,7 +32,7 @@ export default function DrawerContents(props) {
     >
       <List>
         <Link to='/' style={{ textDecoration: 'none', color: 'black' }} >
-          <ListItem button key='Home' selected={isSelected('/')} onClick={() => console.log(props)}>
+          <ListItem button key='Home' selected={isSelected('/')}>
             <ListItemIcon> <HomeIcon /> </ListItemIcon>
             <ListItemText primary='Home' />
           </ListItem>
