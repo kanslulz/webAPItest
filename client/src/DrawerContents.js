@@ -5,6 +5,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 
 import featureDescriptors from './features/feature-descriptors.js';
@@ -30,22 +31,25 @@ export default function DrawerContents(props) {
       onKeyDown={props.closeDrawer}
     >
       <List>
-        <ListItem button key='Home' selected={isSelected('/')} onClick={() => props.history.push('/')}>
-          <ListItemIcon> <HomeIcon /> </ListItemIcon>
-          <ListItemText primary='Home' />
-        </ListItem>
+        <Link to='/' style={{ textDecoration: 'none', color: 'black' }} >
+          <ListItem button key='Home' selected={isSelected('/')} onClick={() => console.log(props)}>
+            <ListItemIcon> <HomeIcon /> </ListItemIcon>
+            <ListItemText primary='Home' />
+          </ListItem>
+        </Link>
       </List>
       <Divider />
       <List>
         {featureDescriptors.map(fd => (
-          <ListItem 
-              button key={fd.name} 
-              selected={isSelected(fd.path)} 
-              onClick={() => props.history.push(fd.path)}
-          >
-            <ListItemIcon> <fd.component.Icon /> </ListItemIcon>
-            <ListItemText primary={fd.name} />
-          </ListItem>
+          <Link to={fd.path} style={{ textDecoration: 'none', color: 'black' }} >
+            <ListItem 
+                button key={fd.name} 
+                selected={isSelected(fd.path)} 
+            >
+              <ListItemIcon> <fd.component.Icon /> </ListItemIcon>
+              <ListItemText primary={fd.name} />
+            </ListItem>
+          </Link>
         ))}
       </List>
     </div>

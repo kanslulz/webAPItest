@@ -44,7 +44,7 @@ export default function ToolBar(props) {
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
       >
-        <DrawerContents closeDrawer={() => setOpen(false)} history={props.history} />
+        <DrawerContents closeDrawer={() => setOpen(false)} />
       </SwipeableDrawer>
     </>
   );
